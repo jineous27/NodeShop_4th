@@ -1,0 +1,19 @@
+{
+  "name": "4-nodeshop",
+  "version": "1.0.0",
+  "description": "4-NodeShop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jineous27/4-NodeShop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jineous27/4-NodeShop/issues"
+  },
+  "homepage": "https://github.com/jineous27/4-NodeShop#readme"
+}
