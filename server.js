@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const morgan = require("morgan");
 
 /*
 app.use((req, res) => {
@@ -12,6 +13,9 @@ app.use((req, res) => {
 const productRoutes = require('./routes/products');
 const cartRoutes = require('./routes/carts');
 const bbsRoutes = require('./routes/bbs');
+
+
+app.use(morgan('common'));
 
 
 app.use('/products', productRoutes);
