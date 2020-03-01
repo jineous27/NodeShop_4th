@@ -40,14 +40,38 @@ router.get('/', (req, res) => {
                 err: error
             });
         });
-
-
-
-
-    // res.json({
-    //     message: "The product is displayed"
-    // });
 });
+
+// 선택된 제품을 불러오는 API를 만들어 보자. productID를 상수화 시키자. Productmodel 그릇안에서 해당 ID ckwrl
+router.get('/:productID', (req, res) => {
+    const productID = req.params.productID;
+    productModel
+        .findById(productID)
+        .exec()
+        .then(doc => {
+            console.log(doc);
+            if (doc) {
+                res.json({
+                    msg: "Get successful product detail",
+                    productInfo: doc 
+                })
+            } else {
+                res.json({
+                    msg: "No valid entry found for provided ID"
+                });
+            }
+        })
+        .catch(error => {
+            res.json({
+                err: error
+            });
+        });
+});
+
+
+
+
+
 
 //API - Patch
 router.patch('/', (req, res) => {
