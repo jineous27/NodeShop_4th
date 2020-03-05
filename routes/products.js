@@ -80,13 +80,40 @@ router.patch('/', (req, res) => {
     });
 });
 
-//API - Delete
+//API for deleting all 
 router.delete('/', (req, res) => {
-    res.json({
-        message: "The product is deleted"
-    });
+    productModel 
+        .deleteMany()
+        .then(() => {
+            res.json ({
+                msg: "All products are deleted"
+            })
+        })
+        .catch(error => {
+            res.json ({
+                err: error
+            });
+        });
 });
 
+
+
+// Create an API for deleting some items by productID
+router.delete('/:productID', (req, res) => {
+    const productID = req.params.productID;
+    productModel
+        .findByIdAndDelete(productID)
+        .then(()=> {
+            res.json({
+                msg: "This product is deleted"
+            })
+        })
+        .catch(error => {
+            res.json ({
+                err: error
+            });
+        });
+});
 
 
 
